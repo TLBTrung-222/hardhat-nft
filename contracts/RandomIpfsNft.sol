@@ -106,7 +106,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage {
 
         // send NFT to caller
         _safeMint(nftOwner, newTokenId);
-        // assign URI (metadata) for next tokenId
+        // assign URI (metadata) for that NFT
         _setTokenURI(newTokenId, s_dogTokenURIs[uint256(dogBreed)]);
         emit NftMinted(dogBreed, nftOwner);
     }
