@@ -13,7 +13,8 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         log: true,
         waitConfirmations: network.config.blockConfirmations || 1,
     });
-    console.log("Contract deployed!!!");
+    console.log("basicNft contract deployed!!!");
+    log("----------------------------------------------------------------");
 
     // verify the contract if we are on testnet
     if (!developmentChains.includes(network.name)) {
