@@ -97,6 +97,14 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     console.log("randomIpfsNft contract deployed!!!");
     log("----------------------------------------------------------------");
 
+    //* register consumer (our contract) to subscription manager
+    if (developmentChains.includes(network.name)) {
+        await vrfCoordinatorV2Mock.addConsumer(
+            subscriptionId,
+            randomIpfsNft.address
+        );
+    }
+
     // verify the contract if we are on testnet
     if (!developmentChains.includes(network.name)) {
         log("Verifing...");
